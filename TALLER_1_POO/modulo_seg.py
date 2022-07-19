@@ -1,55 +1,56 @@
 from datetime import date, datetime
 
 class Rol:
-    def __init__(self, sueldo, horario, tipo_rol):
-        self.sueldo = sueldo
-        self.horario = horario
-        self.tipo_rol = tipo_rol
+    def __init__(self, salario, tiempo, modelo_rol):
+        self.salario = salario
+        self.tiempo = tiempo
+        self.modelo_rol = modelo_rol
 
-    def presentar_rol(self):
-        print("Rol: ",self.tipo_rol,"\nHorario: ",self.horario,"\nSueldo: " ,self.sueldo)
+    def mostrar_rol(self):
+        print("Rol: ",self.modelo_rol,"\ntiempo: ",self.tiempo,"\nsalario: " ,self.salario)
 
 class Usuario(Rol):
-    def __init__(self,sueldo,horario,tipo_rol,nombre,cedula,telefono,correo):
-        super().__init__(sueldo,horario,tipo_rol)
+    def __init__(self,salario,tiempo,modelo_rol,nombre,apellido,cedula,celular,email):
+        super().__init__(salario,tiempo,modelo_rol)
         self.nombre = nombre
+        self.apellido = apellido
         self.cedula = cedula
-        self.celular = celular 
-        self.correo = correo
+        self.celular = celular
+        self.email = email
         
-    def presentar_usuario(self):
-        print("\nNombre: ",self.nombre,"\nCédula: ",self.cedula,"\nTeléfono: ",self.telefono,"\nCorreo: ",self.correo,"\nRol: ",self.tipo_rol)
+    def mostrar_usuario(self):
+        print("\nnombre: ",self.nombre,"\napellido: ",self.apellido,"\ncedula: ",self.cedula,"\ncelular: ",self.celular,"\nemail: ",self.email,"\nRol: ",self.modelo_rol)
 
 class Opciones_Sis(Usuario):
-    def __init__(self,sueldo,horario,tipo_rol,nombre,cedula,telefono,correo,nombre_opcion,accion_realizar):
-        super().__init__(sueldo, horario, tipo_rol, nombre, cedula, telefono, correo)
-        self.nombre_opcion = nombre_opcion
-        self.accion_realizar = accion_realizar
+    def __init__(self,salario,tiempo,modelo_rol,nombre,apellido,cedula,celular,email,nom_opcion,desarrollo_etapa):
+        super().__init__(salario,tiempo,modelo_rol, nombre, apellido,cedula, celular ,email)
+        self.nom_opcion = nom_opcion
+        self.desarrollo_etapa = desarrollo_etapa
 
-    def presentar_opcion(self):
-        print("\nOpción: ",self.nombre_opcion,"\nAcción: ",self.accion_realizar,"\nRol: ",self.tipo_rol)
+    def mostrar_opciones(self):
+        print("\nopción: ",self.nom_opcion,"\nacción: ",self.desarrollo_etapa,"\nRol: ",self.modelo_rol)
 
 class Operaciones:
-    def __init__(self,nombre_operaciones,horas_activo,operaciones_realizadas):
-        self.nombre_operaciones = nombre_operaciones
-        self.horas_activo = horas_activo
-        self.operaciones_realizadas = operaciones_realizadas
+    def __init__(self,nom_operaciones,tiempo_empleado,operaciones_desarrolladas):
+        self.nom_operaciones = nom_operaciones
+        self.tiempo_empleado = tiempo_empleado
+        self.operaciones_desarrolladas = operaciones_desarrolladas
 
-    def presentar_operaciones(self):
-        print("\nOperación: ",self.nombre_operaciones,"\nHoras Activo: ", self.horas_activo,"\nOperaciones realizadas: ", self.operaciones_realizadas)
+    def mostrar_operaciones(self):
+        print("\noperación: ",self.nom_operaciones,"\ntiempo_empleado: ", self.tiempo_empleado,"\noperaciones_desarrolladas: ", self.operaciones_desarrolladas)
 
 class Modulo_Seguridad:
-    def operaciones(self):
+    def id_modelo(self):
         pass
 
-rol = Rol(425.50,datetime.today(),"Gerente")
-rol.presentar_rol()
+rol = Rol(456,datetime.today(),"Gerente")
+rol.mostrar_rol()
 
-user = Usuario(425,datetime.today,"Gerente"," Carlos ", "0924924677", "0930579345", "cwilsonm")
-user.presentar_usuario()
+user = Usuario(456,datetime.today,"Gerente"," Carlos ", "0924924677", "0930579345", "cwilsonm")
+user.mostrar_usuario()
 
-opciones = Opciones_Sis(425,date.today,"Gerente","Andrés", "0929472397", "0984479305", "wtrujillov","Admin","Controlar")
-opciones.presentar_opcion()
+opciones = Opciones_Sis(456,date.today,"Gerente"," Angel ", "0936947924", "0968935891", "tzuñigap","Admin","Controlar")
+opciones.mostrar_opciones()
 
-operacion = Operaciones("Supervisar a sus subordinados",10,20)
-operacion.presentar_operaciones()
+operacion = Operaciones("Supervisar a sus subordinados",15,25)
+operacion.mostrar_operaciones()
